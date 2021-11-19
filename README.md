@@ -1,35 +1,37 @@
 # Potential To-Do's!
 
--   CSS Continuation
+-   CSS Continuation:
     -   Make homepage and drag and drop page more dynamic and appealing.
     -   Favicon.
     -   Reduce redundant css.
     -   Fix errors overflow.
--   Media queries
+-   Media queries:
     -   Vertical queries.
     -   Reduce redundancies.
 -   Browser and device testing.
--   Continued documentation.
+-   Add a option to change password.
+-   Fix errors overflowing 100vh.
+-   Fix drag and drop:
+    -   Allow mobile use (will require vertical redesign).
+    -   Prevent items from being dragged on top of one another.
+    -   Connect drag DB with users DB, so that if a user deletes their account in the users DB, it is also removed from the drag DB.
+        -   Add drag items to users?
+-   Simplify insertInto and insertIntoDrag into a singular DB function.
 
 # Known Issues
 
--   Drag and drop does not work on mobile.
+-   Drag and drop
 
--   Draggable items can be dropped on top of each other. Temp fix of alert and prevention when attempting to drop in a non-accepted area.
-
--   Scaling on drag and drop page.
+    -   Drag and drop does not work on mobile.
+    -   Draggable items can be dropped on top of each other. Temp fix of alert and prevention when attempting to drop in a non-accepted area.
+    -   Scaling on drag and drop page.
+    -   Drag database does not update when user deletes their account.
 
 -   Errors on register and update can overflow the page.
-
--   No password change allowed.
-
--   Drag database does not update when user deletes their account.
 
 -   Not formatted vertically beyond 1490px.
 
 -   Database connection is not closed.
-
--   insertInto and insertIntoDrag could be one function.
 
 # Issues
 
