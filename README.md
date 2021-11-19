@@ -1,13 +1,35 @@
-# To Do!
+# Potential To-Do's!
 
 -   CSS Continuation
+    -   Make homepage and drag and drop page more dynamic and appealing.
+    -   Favicon.
+    -   Reduce redundant css.
+    -   Fix errors overflow.
 -   Media queries
--   Prepared statements
--   Attempt to break the system
--   Clean up file system
--   Organize and comment all pages
--   Set passwords to hashes
--   Better documentation
+    -   Vertical queries.
+    -   Reduce redundancies.
+-   Browser and device testing.
+-   Continued documentation.
+
+# Known Issues
+
+-   Drag and drop does not work on mobile.
+
+-   Draggable items can be dropped on top of each other. Temp fix of alert and prevention when attempting to drop in a non-accepted area.
+
+-   Scaling on drag and drop page.
+
+-   Errors on register and update can overflow the page.
+
+-   No password change allowed.
+
+-   Drag database does not update when user deletes their account.
+
+-   Not formatted vertically beyond 1490px.
+
+-   Database connection is not closed.
+
+-   insertInto and insertIntoDrag could be one function.
 
 # Issues
 
@@ -22,7 +44,7 @@ All classes are stored here and initialized via autoloader in init.php.
 
 -   Database.php
 
--   Makes database connections as needed.
+    -   Makes database connections as needed.
 
 ### CSS
 
@@ -38,7 +60,7 @@ Persistently used headers and footers stored here.
 
 -   Header
     -   Includes:
-        -   init.php: Access all classes with a single require.
+        -   database.php for all database connections.
     -   $database creates a new Database object to query off of in all files with the header.
     -   Functions:
         -   br(): Echos line break.
@@ -47,14 +69,18 @@ Persistently used headers and footers stored here.
 
 ### HTML
 
--   **deleteaccount**: Prompts user to choose to delete their account or not. If they click yes, the session is killed and the header is switched to index.php.
--   **loggedin**: Landing page for logged in users. Provides access to edit, delete, and logout. If they click logout, the session is killed and the header is switched to index.php.
--   **login_form**: Basic login for users. Populates errors if queries come back null.
--   **register_form**: Registration form. Populates errors if queries come back with information in them already (username or email is taken). Validation takes place in several stages here.
--   **updateinfo**: Allows users to update any of their information.
+-   **delete**: Prompts user to choose to delete their account or not.
+-   **drag**: A simple drag and drop example using HTML and JS drag and drop API as well as AJAX to update the database without resetting the page.
+-   **homepage**: Landing page for logged in users. Provides access to perfume tracker, edit, delete, and logout. If they click logout, the session is killed and the header is switched to index.php.
+-   **login**: Basic login for users. Populates errors if queries come back null.
+-   **register**: Registration form. Populates errors if queries come back with information in them already (username or email is taken). Validation takes place in several stages here.
+-   **update**: Allows users to update any of their information.
 
 ### PHP
 
+-   **ajax**: Receives information regarding the ID of the item moved and the landing zone. Updates the JSON object in the database to represent where each item is located in the drag and drop.
+-   **delete_action**: If user confirms deletion the session is killed, their account is deleted from the users DB, and the header is switched to index.php.
+-   **homepage_action**: Redirects user to different locations and programmatically generates a homepage photo based on the users wishlist. If no wishlist is found, uses the full list of perfumes.
 -   **login_action**: Checks if entered username and password match info in DB. If they do, a session is created and the user is redirected to loggedin.php.
--   **register_action.php**: Populates errors if queries come back with information in them already (username or email is taken). Validation takes place in several stages here. If no errors, session is started and user is redirected to loggedin.php.
+-   **register_action**: Populates errors if queries come back with information in them already (username or email is taken). Validation takes place in several stages here. If no errors, session is started and user is redirected to loggedin.php.
 -   **updateinfo_action**: Shows user information from queried DB to provide up to date information. Validation takes place in several stages here. If no errors, $\_SESSION['username'] is overwritten with updated username to provide continual queries. User is sent to loggedin.
